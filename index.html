@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blind Typing Challenge</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Blind Typing Challenge</h1>
+      <p>Type the shown passage exactly. Mistakes are marked instantly so judges can score faster.</p>
+    </header>
+
+    <section class="controls card">
+      <label for="passageSelect">Choose passage:</label>
+      <select id="passageSelect" aria-label="Select challenge passage"></select>
+      <label for="timeLimit">Round time:</label>
+      <select id="timeLimit" aria-label="Select round time">
+        <option value="5">5 min</option>
+        <option value="10">10 min</option>
+        <option value="15">15 min</option>
+        <option value="20">20 min</option>
+      </select>
+      <button id="startBtn" type="button">Start Round</button>
+      <button id="resetBtn" type="button" class="secondary">Reset</button>
+    </section>
+
+    <section class="card">
+      <h2>Target text</h2>
+      <p id="targetText" class="target-text" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <h2>Your typing</h2>
+      <textarea
+        id="inputArea"
+        rows="7"
+        placeholder="Start typing directly (auto-start enabled)..."
+        spellcheck="false"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+      ></textarea>
+      <div id="typedOverlay" class="typed-overlay" aria-live="polite"></div>
+    </section>
+
+    <section class="score-grid card">
+      <div><span class="label">Time left:</span> <span id="time">05:00</span></div>
+      <div><span class="label">Correct chars:</span> <span id="correctChars">0</span></div>
+      <div><span class="label">Mistakes:</span> <span id="mistakes">0</span></div>
+      <div><span class="label">Accuracy:</span> <span id="accuracy">100%</span></div>
+      <div><span class="label">WPM:</span> <span id="wpm">0</span></div>
+      <div><span class="label">Status:</span> <span id="status">Waiting</span></div>
+    </section>
+
+    <section class="card">
+      <h2>Judge tips</h2>
+      <ul>
+        <li>Mistakes are highlighted in red in real time.</li>
+        <li>Round auto-starts when participant begins typing (no need to click Start).</li>
+        <li>Set the round timer to 5, 10, 15, or 20 minutes before each participant.</li>
+        <li>When the participant completes the passage, the round auto-stops.</li>
+        <li>Use Reset to clear and start the next participant quickly.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
